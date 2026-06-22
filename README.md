@@ -55,3 +55,7 @@ Each pillar contains measurable metrics tailored to specific organizational role
 - Python
 - Mathematical Modelling
 - Data Analytics
+  
+---
+
+*This project demonstrates the application of mathematical modelling to employee growth evaluation through transparent, measurable, and scalable performance analytics.
