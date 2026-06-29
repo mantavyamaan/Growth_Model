@@ -832,6 +832,7 @@ function importScenario(){
         chosenRole=d.role||"sales"; $("empRole").value=chosenRole;
         $("empName").value=d.name||"Employee";
         prevCumulative=d.prevCumulative??0;
+        $("carryForward").value = prevCumulative;
         Object.keys(state).forEach(k=>delete state[k]);
         Object.assign(state, d.state||{});
         history=d.history||[];
