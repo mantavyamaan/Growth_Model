@@ -1,6 +1,7 @@
 # Growth Model
 
-A mathematical framework for measuring employee growth through contribution-based performance metrics.
+A mathematical framework for measuring employee growth through contribution-based performance metrics. You can acess the model here: 
+[Growth Model](https://mantavyamaan.github.io/Growth_Model/growth-model-console.html)
 
 ## Overview
 
