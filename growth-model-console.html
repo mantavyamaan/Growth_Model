@@ -597,7 +597,7 @@ function recalcAndPaint(){
   $("bandPill").style.color = "#06101f";
   $("gMeta").textContent = `Cumulative ${r.cumulative} → ${quarterlyBand(r.cumulative)} (quarterly band)`;
   $("mMonthly").textContent = r.monthly;
-  $("mPrev").textContent = prevCumulative;
+  $("carryForward").value = prevCumulative;
   $("mCumul").textContent = r.cumulative;
 
   drawGauge(r.monthly, band.c);
