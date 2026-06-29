@@ -230,7 +230,26 @@
 
           <div class="meta-row">
             <div class="meta-box"><div class="k">Monthly points</div><div class="v" id="mMonthly">0</div></div>
-            <div class="meta-box"><div class="k">Carry-forward</div><div class="v" id="mPrev">0</div></div>
+            <div class="meta-box">
+    <div class="k">Carry-forward</div>
+    <input
+        type="number"
+        id="carryForward"
+        value="320"
+        style="
+            width:90%;
+            margin-top:6px;
+            background:var(--panel-2);
+            border:1px solid var(--line);
+            color:var(--ink);
+            border-radius:8px;
+            padding:6px;
+            text-align:center;
+            font-size:20px;
+            font-weight:700;
+        "
+    >
+</div>
             <div class="meta-box"><div class="k">Cumulative</div><div class="v" id="mCumul">0</div></div>
           </div>
         </div>
@@ -731,6 +750,7 @@ function closeMonth(){
     monthly_score:r.monthly, cumulative_score:r.cumulative
   });
   prevCumulative = r.cumulative;             // carry forward
+  $("carryForward").value = prevCumulative;
   // reset period inputs
   activeKeys().forEach(k=>{ if(k!=="bonus_points"&&k!=="direct_deduction") state[k]=0; else state[k]=0; });
   syncInputs();
@@ -761,6 +781,7 @@ function loadSample(){
   });
   chosenRole="sales"; $("empRole").value="sales"; $("empName").value="Asha R.";
   prevCumulative=320;
+  $("carryForward").value = prevCumulative;
   renderPillars(); syncInputs(); recalcAndPaint();
 }
 
@@ -844,6 +865,10 @@ $("btnCopy").onclick=copySummary;
 $("btnExport").onclick=exportScenario;
 $("btnImport").onclick=importScenario;
 $("btnClose").onclick=closeMonth;
+  $("carryForward").addEventListener("input", function () {
+    prevCumulative = parseInt(this.value) || 0;
+    recalcAndPaint();
+});
 
 // recognition inputs live-bind (they're rendered statically)
 document.querySelectorAll('input[data-key="bonus_points"],input[data-key="direct_deduction"]').forEach(inp=>{
